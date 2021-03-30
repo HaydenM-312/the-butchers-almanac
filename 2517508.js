@@ -1,4 +1,4 @@
-[
+var USW00014764 = [
   {
     "STATION": "USW00014764",
     "LATITUDE": 43.64222,
