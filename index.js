@@ -1,4 +1,4 @@
-function calculateTemps(station, date) {
+function calculateTemps(station) {
     let maxTotal = 0;
     let minTotal = 0; 
     for (var i = 0; i < station.length; i++) {
@@ -7,7 +7,7 @@ function calculateTemps(station, date) {
     }
     let maxSlope = maxTotal/station.length;
     let minSlope = minTotal/station.length;
-    let daysSinceLastData = daysSince(date);
+    let daysSinceLastData = daysSince(station[station.length - 1]["DATE"]);
     return [(station[station.length - 1]["TMIN"] + (minSlope * daysSinceLastData)), (station[station.length - 1]["TMAX"] + (maxSlope * daysSinceLastData))];
 }
 
