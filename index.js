@@ -15,3 +15,11 @@ function daysSince(pastDate) {
     let parsedCurrentDate = pastDate.split("-");
     return (Date.now() - new Date(parsedCurrentDate[0], parsedCurrentDate[1], parsedCurrentDate[2]))/(1000 * 60 * 60 * 24);  
 }
+
+
+function testThings() {
+    document.getElementById("weather").innerText = calculateTemps(USW00014764);
+}
+
+
+testThings();
