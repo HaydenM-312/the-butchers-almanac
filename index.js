@@ -35,7 +35,7 @@ function calculate(station, month, tempType) {
     
     for (var i = 0; i < yearsWithContents.length; i++) {
         var total = 0;
-        var j = 0
+        var j = 0;
         for (j = 0; j < yearsWithContents[i].length; j++) {
             total += yearsWithContents[i][j][tempType];
         }
