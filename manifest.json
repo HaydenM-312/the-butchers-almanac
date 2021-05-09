@@ -1,0 +1,19 @@
+{
+  "dir": "ltr",
+  "lang": "de",
+  "name": "The Butcher's Almanac",
+  "short_name": "The Butcher's Almanac",
+  "scope": "/the-butchers-almanac/",
+  "display": "browser",
+  "start_url": "https://haydenm-312.github.io/the-butchers-almanac/",
+  "background_color": "#000000",
+  "theme_color": "transparent",
+  "description": "",
+  "orientation": "any",
+  "related_applications": [],
+  "prefer_related_applications": "false",
+  "icons": [],
+  "url": "https://haydenm-312.github.io/the-butchers-almanac/",
+  "generated": true,
+  "screenshots": []
+}
