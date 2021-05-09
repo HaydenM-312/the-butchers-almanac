@@ -2,7 +2,7 @@ function calculateTemps(station, month, year, day, tempType) {
 	let results = calculate(station, month, tempType);
 	var finalYearIncrease = (year - results[2].split("-")[0]) * results[0];
 	var finalMonthlyIncrease = (day - results[2].split("-")[2]) * results[1];
-	return Math.round((results[3]  - finalYearIncrease - finalMonthlyIncrease));
+	return Math.round((results[3] - finalYearIncrease - finalMonthlyIncrease));
 }
 
 function calculate(station, month, tempType) {
@@ -32,14 +32,14 @@ function calculate(station, month, tempType) {
 
 
 	var monthAverages = [];
-	
+
 	for (var i = 0; i < yearsWithContents.length; i++) {
 		var total = 0;
 		var j = 0;
 		for (j = 0; j < yearsWithContents[i].length; j++) {
 			total += yearsWithContents[i][j][tempType];
 		}
-		monthAverages.push(total/j);
+		monthAverages.push(total / j);
 	}
 
 	var monthDiffAverages = [];
@@ -50,7 +50,7 @@ function calculate(station, month, tempType) {
 		for (j = 0; j < yearsWithContents[i].length - 1; j++) {
 			total += yearsWithContents[i][j][tempType] - yearsWithContents[i][j + 1][tempType]
 		}
-		monthDiffAverages.push(total/j);
+		monthDiffAverages.push(total / j);
 	}
 
 	var pointEstimate = 0;
@@ -68,7 +68,7 @@ function calculate(station, month, tempType) {
 		monthDiffTotal += monthDiffAverages[i];
 	}
 
-	return [(yearDiffTotal/monthAverages.length), (monthDiffTotal/monthDiffAverages.length), initialDate, (pointEstimate/monthAverages.length)];
+	return [(yearDiffTotal / monthAverages.length), (monthDiffTotal / monthDiffAverages.length), initialDate, (pointEstimate / monthAverages.length)];
 }
 
 function parseInputDate(date) {
@@ -82,23 +82,26 @@ function main() {
 	var yyyy = dateGetter.getFullYear();
 
 	document.getElementById("weather-input").value = yyyy + '-' + mm + '-' + dd;
-	document.getElementById("weather-button").onclick = function() {
-		const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-		const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	document.getElementById("weather-button").onclick = passFormData;
+}
 
-		var inputDate = parseInputDate(document.getElementById("weather-input").value);
-		var currentAverage = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
+function passFormData() {
+	const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+	const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-		var averageEmoji = currentAverage < 30 ? "❄️" : (currentAverage >= 70 ? "🔥" : "⛅");
-		document.getElementById("weather-title").innerText = "Temperatures for " + document.getElementById("weather-input").value;
-		document.getElementById("weather-avg-display").innerText = averageEmoji + " " + currentAverage;
-		document.getElementById("weather-high-display").innerText = "☀️ " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
-		document.getElementById("weather-low-display").innerText = "🌙 " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
-	};
+	var inputDate = parseInputDate(document.getElementById("weather-input").value);
+	var currentAverage = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
+
+	var averageEmoji = currentAverage < 30 ? "❄️" : (currentAverage >= 70 ? "🔥" : "⛅");
+	document.getElementById("weather-title").innerText = "Temperatures for " + document.getElementById("weather-input").value;
+	document.getElementById("weather-avg-display").innerText = averageEmoji + " " + currentAverage;
+	document.getElementById("weather-high-display").innerText = "☀️ " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
+	document.getElementById("weather-low-display").innerText = "🌙 " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
 }
 
 if ("serviceWorker" in navigator) {
 	navigator.serviceWorker.register("/service-worker.js");
-  }
+}
 
 main();
+passFormData();
