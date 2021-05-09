@@ -2,14 +2,36 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 
 <body>
-    <h1 id="weather">Weather</h1>
+	<div class="column">
+		<ul class="mdl-list">
+			<li class="mdl-list__item">
+				<span class="mdl-list__item-primary-content"><span class="material-icons">
+				thermostat
+				</span>
+				</span>
+			</li>
+			<li class="mdl-list__item">
+				<span class="mdl-list__item-primary-content">
+				<span class="material-icons">
+					ac_unit
+				</span>
+				</span>
+			</li>
+			
+			<li class="mdl-list__item">
+				<input id="weather-input" type="date" class="mdl-textfield mdl-textfield__input" value="2000-01-01"/>
+				<input id="weather-button" class="mdl-button" type="submit" name="button" value="enter date"/>
+			</li>
+		</ul>
+	</div>
 </body>
+
 <script src="./2517508.js"></script>
 <script src="./index.js"></script>
 
