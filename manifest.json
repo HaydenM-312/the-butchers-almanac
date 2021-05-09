@@ -4,7 +4,7 @@
   "name": "The Butcher's Almanac",
   "short_name": "The Butcher's Almanac",
   "scope": "/the-butchers-almanac/",
-  "display": "browser",
+  "display": "standalone",
   "start_url": "https://haydenm-312.github.io/the-butchers-almanac/",
   "background_color": "#000000",
   "theme_color": "transparent",
