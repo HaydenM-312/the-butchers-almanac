@@ -84,9 +84,12 @@ function main() {
 	document.getElementById("weather-input").value = yyyy + '-' + mm + '-' + dd;
 	document.getElementById("weather-button").onclick = function() {
 		var inputDate = parseInputDate(document.getElementById("weather-input").value);
-		document.getElementById("weather-avg-display").innerText = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
-		document.getElementById("weather-high-display").innerText = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
-		document.getElementById("weather-low-display").innerText = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
+		var currentAverage = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
+
+		var averageEmoji = currentAverage < 30 ? "❄️" : (currentAverage >= 70 ? "🔥" : "⛅");
+		document.getElementById("weather-avg-display").innerText = averageEmoji + " " + currentAverage;
+		document.getElementById("weather-high-display").innerText = "☀️ " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
+		document.getElementById("weather-low-display").innerText = "🌙 " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
 	};
 }
 
