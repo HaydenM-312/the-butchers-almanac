@@ -1,12 +1,5 @@
-function calculateTempsHigh(station, month, year, day) {
-	let results = calculate(station, month, "TMAX");
-	var finalYearIncrease = (year - results[2].split("-")[0]) * results[0];
-	var finalMonthlyIncrease = (day - results[2].split("-")[2]) * results[1];
-	return Math.round((results[3]  - finalYearIncrease - finalMonthlyIncrease));
-}
-
-function calculateTempsLow(station, month, year, day) {
-	let results = calculate(station, month, "TMIN");
+function calculateTemps(station, month, year, day, tempType) {
+	let results = calculate(station, month, tempType);
 	var finalYearIncrease = (year - results[2].split("-")[0]) * results[0];
 	var finalMonthlyIncrease = (day - results[2].split("-")[2]) * results[1];
 	return Math.round((results[3]  - finalYearIncrease - finalMonthlyIncrease));
@@ -91,8 +84,9 @@ function main() {
 	document.getElementById("weather-input").value = yyyy + '-' + mm + '-' + dd;
 	document.getElementById("weather-button").onclick = function() {
 		var inputDate = parseInputDate(document.getElementById("weather-input").value);
-		document.getElementById("weather-high-display").innerText = "\tHigh: " + calculateTempsHigh(USW00014764, inputDate[1], inputDate[0], inputDate[2]);
-		document.getElementById("weather-low-display").innerText = "\tLow: " + calculateTempsLow(USW00014764, inputDate[1], inputDate[0], inputDate[2]);
+		document.getElementById("weather-high-display").innerText = "\tHigh: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
+		document.getElementById("weather-low-display").innerText = "\t Low: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
+		document.getElementById("weather-avg-display").innerText = "\t Avg: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
 	};
 }
 

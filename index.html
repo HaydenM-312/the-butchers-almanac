@@ -8,33 +8,61 @@
 </head>
 
 <body>
-	<div class="column">
-		<ul class="mdl-list">
-			<li class="mdl-list__item">
-				<span class="mdl-list__item-primary-content">
-					<span class="material-icons">
-					thermostat
-					</span>
-					
-					<span id="weather-high-display"></span>
-				</span>
-			</li>
-			<li class="mdl-list__item">
-				<span class="mdl-list__item-primary-content">
-					<span class="material-icons">
-						ac_unit
-					</span>
-					
-					<span id="weather-low-display"></span>
-				</span>
-			</li>
-			
-			<li class="mdl-list__item">
-				<input id="weather-input" type="date" class="mdl-textfield mdl-textfield__input" value="2000-01-01"/>
-				<input id="weather-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" name="button" value="enter date"/>
-			</li>
-		</ul>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">Weather Predictor</span>
+			</div>
+		</header>
 	</div>
+	<br>
+	<br>
+	<main class="mdl-layout__content">
+		<div class="page-content">
+			<div class="column">
+				<ul class="mdl-list">
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							<span class="material-icons">
+								thermostat
+							</span>
+
+							<span id="weather-high-display"></span>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							<span class="material-icons">
+								cloud
+							</span>
+
+							<span id="weather-avg-display"></span>
+						</span>
+					</li>
+
+					<li class="mdl-list__item">
+						<span class="mdl-list__item-primary-content">
+							<span class="material-icons">
+								ac_unit
+							</span>
+
+							<span id="weather-low-display"></span>
+						</span>
+					</li>
+
+					<li class="mdl-list__item">
+						<input id="weather-input" type="date" class="mdl-textfield mdl-textfield__input"
+							value="2000-01-01" />
+					</li>
+					<li>
+						<input id="weather-button"
+							class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit"
+							name="button" value="enter date" />
+					</li>
+				</ul>
+			</div>
+		</div>
+	</main>
 </body>
 
 <script src="./2517508.js"></script>
