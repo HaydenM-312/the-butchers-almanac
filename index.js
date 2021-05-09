@@ -91,8 +91,8 @@ function main() {
 	document.getElementById("weather-input").value = yyyy + '-' + mm + '-' + dd;
 	document.getElementById("weather-button").onclick = function() {
 		var inputDate = parseInputDate(document.getElementById("weather-input").value);
-		document.getElementById("weather-display").innerText = "High: " + calculateTempsHigh(USW00014764, inputDate[1], inputDate[0], inputDate[2])
-			+ "\nLow: " + calculateTempsLow(USW00014764, inputDate[1], inputDate[0], inputDate[2]);
+		document.getElementById("weather-high-display").innerText = "\tHigh: " + calculateTempsHigh(USW00014764, inputDate[1], inputDate[0], inputDate[2]);
+		document.getElementById("weather-low-display").innerText = "\tLow: " + calculateTempsLow(USW00014764, inputDate[1], inputDate[0], inputDate[2]);
 	};
 }
 
