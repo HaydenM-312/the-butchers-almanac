@@ -83,10 +83,14 @@ function main() {
 
 	document.getElementById("weather-input").value = yyyy + '-' + mm + '-' + dd;
 	document.getElementById("weather-button").onclick = function() {
+		const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 		var inputDate = parseInputDate(document.getElementById("weather-input").value);
 		var currentAverage = calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
 
 		var averageEmoji = currentAverage < 30 ? "❄️" : (currentAverage >= 70 ? "🔥" : "⛅");
+		document.getElementById("weather-title").innerText = "Temperatures for " + document.getElementById("weather-input").value;
 		document.getElementById("weather-avg-display").innerText = averageEmoji + " " + currentAverage;
 		document.getElementById("weather-high-display").innerText = "☀️ " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
 		document.getElementById("weather-low-display").innerText = "🌙 " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
