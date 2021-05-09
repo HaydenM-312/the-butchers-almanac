@@ -84,7 +84,7 @@ function main() {
 	document.getElementById("weather-input").value = yyyy + '-' + mm + '-' + dd;
 	document.getElementById("weather-button").onclick = function() {
 		var inputDate = parseInputDate(document.getElementById("weather-input").value);
-		document.getElementById("weather-high-display").innerText = "\tHigh: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
+		document.getElementById("weather-high-display").innerText = "\t High: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMAX");
 		document.getElementById("weather-low-display").innerText = "\t Low: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
 		document.getElementById("weather-avg-display").innerText = "\t Avg: " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TAVG");
 	};
