@@ -81,7 +81,7 @@ void write_js_file(temp_array temperatures, char* path) {
 
 		fwrite_sm("\n", 1,  file);
 		
-		if (i % 8 == 7) {
+		if (i % col_title_num == col_title_num - 1) {
 			fwrite_sm("\t}", 1,  file);
 			if (i != temperatures.len - 1) fwrite_sm(",\n", 1,  file);
 			else fwrite_sm("\n];\n", 1,  file);
