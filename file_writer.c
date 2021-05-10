@@ -62,21 +62,22 @@ void write_js_file(temp_array temperatures, char* path) {
 	fclose(fopen(path, "w"));
 
 	FILE* file = fopen(path, "a");
+	int col_title_num = 8;
 
 	fwrite("let data = [\n", 1, strlen("let data = [\n"),  file);
 
-	for (size_t i = 8; i < temperatures.len; i++) {
-		if (i % 8 == 0) fwrite_sm("\t{\n", 1,  file);
+	for (size_t i = col_title_num; i < temperatures.len; i++) {
+		if (i % col_title_num == 0) fwrite_sm("\t{\n", 1,  file);
 
 		fwrite_sm("\t\t\"", 1,  file);
-		fwrite_sm(temperatures.value[i % 8], 1,  file);
+		fwrite_sm(temperatures.value[i % col_title_num], 1,  file);
 		fwrite_sm("\"", 1,  file);
 		fwrite_sm(": ", 1,  file);
-		if (i % 8 == 0 || i % 8 == 4) fwrite_sm("\"", 1,  file);
+		if (i % col_title_num == 0 || i % col_title_num == 4) fwrite_sm("\"", 1,  file);
 		fwrite_sm(temperatures.value[i], 1,  file);
-		if (i % 8 == 0 || i % 8 == 4) fwrite_sm("\"", 1,  file);
+		if (i % col_title_num == 0 || i % col_title_num == 4) fwrite_sm("\"", 1,  file);
 
-		if (i % 8 != 7) fwrite_sm(",", 1,  file);
+		if (i % col_title_num != col_title_num - 1) fwrite_sm(",", 1,  file);
 
 		fwrite_sm("\n", 1,  file);
 		
