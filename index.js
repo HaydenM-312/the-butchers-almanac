@@ -94,6 +94,10 @@ function passFormData() {
 	document.getElementById("weather-low-display").innerText = "🌙 " + calculateTemps(USW00014764, inputDate[1], inputDate[0], inputDate[2], "TMIN");
 }
 
+function about() {
+	alert("This app was designed to be a quick and easy way to predict future weather based on past trends. We decided to create this app as a PWA (Progressive Web App) to allow for a native-like user experience on mobile (accessible using the \"add to home screen\" functionality built into mobile web browsers, this will allow the user to launch the app standalone) without compromising on desktop usability. This also allowed us to use the JavaScript programming language, which we are more familiar with. The calculations are made by a prediction algorithm that takes into account temperature changes over the years and throughout the individual months, to create a temperature prediction that is specific to the individual day. The data used is from the NCDC.")
+}
+
 if ("serviceWorker" in navigator) {
 	navigator.serviceWorker.register("/service-worker.js");
 }

@@ -47,6 +47,9 @@
 					<h3 id="weather-title">
 						Title
 					</h3>
+					<button onclick="about()" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+						<i class="material-icons">info</i>
+					</button>
 					<h4>Average</h4>
 					<h1 id="weather-avg-display">Avg</h1>
 					<h3>
@@ -61,6 +64,7 @@
 					<br>
 					<input id="weather-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
 						type="submit" name="button" value="enter date" />
+					<br>
 				</div>
 			</div>
 	</main>
@@ -68,7 +72,7 @@
 
 <script src="./2517508.js"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
-<pwa-install style="bottom: 20%; padding-left: 10%; position: absolute;">Install App</pwa-install>
+<pwa-install style="display: none;"></pwa-install>
 
 <script src="./index.js"></script>
 
